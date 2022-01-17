@@ -1,1 +1,1 @@
-# leetcode
+// Daily update of leetcode solutions
