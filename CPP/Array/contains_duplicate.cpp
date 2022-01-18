@@ -1,6 +1,6 @@
 // Source : https://leetcode.com/problems/contains-duplicate/
 // Author : Jiahao Liang
-// Date   : 01-18-2022
+// Date   : 01-17-2022
 
 /*********************************************************************************** 
 
