@@ -29,19 +29,15 @@ Constraints:
 
 class Solution {
 public:
-    int maxProfit(vector<int>& prices) {
-        if(prices.empty() || prices.size() == 1)
+    auto maxProfit(vector<int>& prices) {
+        std::ios::sync_with_stdio(false);
+        std::cin.tie(nullptr); 
+        auto best = 0, smallest = INT_MAX;
+        for (auto &i : prices) 
         {
-            return 0;
-        }
-        int i = 0, j = prices.size()-1, minPrice = INT_MAX, result = 0;
-        ios_base::sync_with_stdio(false);
-        cin.tie(NULL);
-        for(size_t i = 0; i < prices.size(); ++i)
-        {
-            minPrice = std::min(minPrice, prices[i]);
-            result = std::max(result, prices[i]-minPrice);
-        }
-        return result;
-    }
+            smallest = min(smallest, i);
+            best = max(best, i - smallest);
+        };
+        return best; 
+    };
 };
