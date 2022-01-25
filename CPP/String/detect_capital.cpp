@@ -23,22 +23,26 @@ Output: false
 class Solution {
 public:
     bool detectCapitalUse(string word) {
-        int flag = 0, FLAG = 0;
-        for(int i = 1; i < word.size(); i++)
+       bool flag = false, FLAG = false;
+        for(size_t i = 1; i < word.size(); ++i)
         {
             if(word[i] >= 'A' && word[i] <= 'Z')
-                FLAG = 1;
-            if(word[i] >= 'a' && word[i] <= 'z')
-                flag = 1;
+            {
+                FLAG = true;
+            }
+            else if(word[i] >= 'a' && word[i] <= 'z')
+            {
+                flag = true;
+            }
         }
-        if(flag && FLAG)
+        if(FLAG && flag)
         {
-            return 0;
+            return false;
         }
-        if(FLAG && word[0] >= 'a' && word[0] <= 'z')
+        if((word[0] >= 'a' && word[0] <= 'z') && FLAG)
         {
-            return 0;
+            return false;
         }
-        return 1;
+        return true;
     }
 };
