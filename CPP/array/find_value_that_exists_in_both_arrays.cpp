@@ -27,15 +27,17 @@ public:
 			}
 			else if(*i > *j)
 			{
-				result.push_back(*j);
-				++j;
+				result.push_back(*(j++));
 			}
 			else if(*i < *j)
 			{
-				result.push_back(*i);
-				++i;
+				result.push_back(*(i++));
 			}
 		}
+		while(i != nums1.end())
+			result.push_back(*(i++));
+		while(j != nums2.end())
+			result.push_back(*(j++));
 		return result;
 	}
 };
@@ -43,8 +45,8 @@ public:
 int main(int argc, char *argv[]) 
 {
 	Solution test;
-	std::vector<int> vec1 = {1, 3, 4, 6, 10, 5};
-	std::vector<int> vec2 = {4, 1, 5, 7, 9, 10};
+	std::vector<int> vec1 = {1, 3, 4, 6};
+	std::vector<int> vec2 = {4, 1, 5, 7};
 	std::vector<int> vec3 = test.getResult(vec1, vec2);
 	for(auto &i : vec3)
 		std::cout << i << " ";
